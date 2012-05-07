@@ -1,0 +1,46 @@
+<jaxb:bindings version="2.0"  
+              xmlns:jaxb="http://java.sun.com/xml/ns/jaxb"
+              xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  
+  <jaxb:bindings schemaLocation="saml-schema-assertion-2.0.xsd">
+    <jaxb:bindings node="/xs:schema"> 
+      <jaxb:schemaBindings>
+         <jaxb:package name="de.groothues.mysaml.assertion" />
+      </jaxb:schemaBindings>
+    </jaxb:bindings>
+    <jaxb:bindings node="//xs:complexType[@name='SubjectType']/xs:choice/xs:sequence"> 
+      <jaxb:bindings node=".//xs:element[@ref='saml:SubjectConfirmation']">
+         <jaxb:property name="nameIdSubjectConfirmation" />
+      </jaxb:bindings>
+    </jaxb:bindings>
+    <jaxb:bindings node="//xs:complexType[@name='AuthnContextType']/xs:sequence/xs:choice/xs:sequence/xs:choice"> 
+      <jaxb:bindings node=".//xs:element[@ref='saml:AuthnContextDecl']">
+         <jaxb:property name="AuthnContextDecl1" />
+      </jaxb:bindings>
+    </jaxb:bindings>
+    <jaxb:bindings node="//xs:complexType[@name='AuthnContextType']/xs:sequence/xs:choice/xs:sequence/xs:choice"> 
+      <jaxb:bindings node=".//xs:element[@ref='saml:AuthnContextDeclRef']">
+         <jaxb:property name="AuthnContextDeclRef1" />
+      </jaxb:bindings>
+    </jaxb:bindings>
+  </jaxb:bindings>
+
+  <jaxb:bindings schemaLocation="xenc-schema.xsd" node="/xs:schema">
+    <jaxb:schemaBindings>
+       <jaxb:package name="de.groothues.mysaml.xenc" />
+    </jaxb:schemaBindings>
+  </jaxb:bindings>
+
+  <jaxb:bindings schemaLocation="xmldsig-core-schema.xsd" node="/xs:schema">
+    <jaxb:schemaBindings>
+       <jaxb:package name="de.groothues.mysaml.xmldsig" />
+    </jaxb:schemaBindings>
+  </jaxb:bindings>
+
+  <jaxb:bindings schemaLocation="saml-schema-protocol-2.0.xsd" node="/xs:schema">
+    <jaxb:schemaBindings>
+       <jaxb:package name="de.groothues.mysaml.protocol" />
+    </jaxb:schemaBindings>
+  </jaxb:bindings>
+
+</jaxb:bindings>
